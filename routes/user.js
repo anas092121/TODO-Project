@@ -12,7 +12,6 @@ router.post("/new", register);
 
 router.post("/login", login);
 
-// continue from here create logout router
 router.post("/logout", logout);
 
 router.get("/me", isAuthenticated, getMyProfile);
