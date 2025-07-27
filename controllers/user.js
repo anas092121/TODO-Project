@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import ErrorHandler from "../middlewares/error.js";
 
 // this function can be used for admin login to get all the user's data
-export const getAllUsers = async (req, res) => {};
+export const getAllUsers = async (req, res) => { };
 
 // login
 export const login = async (req, res, next) => {
@@ -31,7 +31,7 @@ export const register = async (req, res, next) => {
       return next(new ErrorHandler("User already exist with this email", 400));
     const hashedPassword = await bcrypt.hash(password, 10);
     user = await User.create({ name, email, password: hashedPassword });
-    sendCookie(user, "Registered Succesfully", 201);
+    sendCookie(user, res, "Registered Successfully", 201);
   } catch (error) {
     next(error);
   }
